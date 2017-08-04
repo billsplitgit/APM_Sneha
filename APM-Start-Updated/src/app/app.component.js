@@ -15,7 +15,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'pm-app',
-        template: "\n    <div><h1>{{pageTitle}}</h1>\n        \n    "
+        template: "\n    <div><h1>{{pageTitle}}</h1>\n     <pm-products></pm-products>   \n    "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
