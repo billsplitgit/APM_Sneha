@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from "./product";
-import { ProductService } from "./product.service";
+import { IProduct } from './product';
+import { ProductService } from './product.service';
 
 @Component({
     selector: 'pm-products',
@@ -9,7 +9,8 @@ import { ProductService } from "./product.service";
 })
 
 export class ProductListComponent implements OnInit{
-pageTitle: string = 'Product List';
+    errorMessage: string;
+    pageTitle: string = 'Product List';
 imageWidth: number = 50;
 imageMargin: number = 2;
 showImage: boolean = false;
@@ -41,10 +42,17 @@ toggleImage():void{
     this.showImage= !this.showImage;
 }
 
-ngOnInit():void{
-    console.log('In OnInit')
-    this.products = this._productService.getProducts();
-    this.filteredProducts = this.products;
+// ngOnInit():void{
+//     console.log('In OnInit')
+//     this.products = this._productService.getProducts();
+//     this.filteredProducts = this.products;
+// }
+
+ngOnInit(): void{
+    this._productService.getProducts()
+    // tslint:disable-next-line:whitespace
+    .subscribe(products => {this.products = products; this.filteredProducts = this.products;},
+               error => this.errorMessage = <any>error);
 }
 
 onRatingClicked(message: string): void{

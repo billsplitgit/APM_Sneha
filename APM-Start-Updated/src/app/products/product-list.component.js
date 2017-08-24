@@ -37,10 +37,15 @@ var ProductListComponent = (function () {
     ProductListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
     };
+    // ngOnInit():void{
+    //     console.log('In OnInit')
+    //     this.products = this._productService.getProducts();
+    //     this.filteredProducts = this.products;
+    // }
     ProductListComponent.prototype.ngOnInit = function () {
-        console.log('In OnInit');
-        this.products = this._productService.getProducts();
-        this.filteredProducts = this.products;
+        var _this = this;
+        this._productService.getProducts()
+            .subscribe(function (products) { _this.products = products; _this.filteredProducts = _this.products; }, function (error) { return _this.errorMessage = error; });
     };
     ProductListComponent.prototype.onRatingClicked = function (message) {
         this.pageTitle = 'Product List:' + message;
