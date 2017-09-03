@@ -17,7 +17,7 @@ import { WelcomeComponent } from './home/welcome.component';
   imports: [ BrowserModule, FormsModule, HttpModule, 
     RouterModule.forRoot([
       {path: 'products', component: ProductListComponent},
-      {path: 'products/:id',canActivate: [ProductGaurdService], component: ProductDetailComponent},
+      {path: 'products/:id', canActivate: [ProductGaurdService], component: ProductDetailComponent},
       {path: 'welcome', component: WelcomeComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full' }

@@ -15,6 +15,7 @@ var ProductGaurdService = (function () {
     function ProductGaurdService(_router) {
         this._router = _router;
     }
+    // tslint:disable-next-line:one-line
     ProductGaurdService.prototype.canActivate = function (route) {
         var id = +route.url[1].path;
         // tslint:disable-next-line:one-line

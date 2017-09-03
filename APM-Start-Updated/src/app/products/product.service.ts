@@ -11,13 +11,17 @@ import 'rxjs/add/operator/do';
 
 @Injectable()
 
+// tslint:disable-next-line:one-line
 export class ProductService{
 
-    private _productUrl = 'api/products/products.json'
+    private _productUrl = 'api/products/products.json';
 
-        constructor(private _http : Http){}
+        // tslint:disable-next-line:no-trailing-whitespace
+        
+        constructor(private _http: Http) { }
     // tslint:disable-next-line:no-trailing-whitespace
     
+        // tslint:disable-next-line:typedef-whitespace
         getProducts()  : Observable<IProduct[]> {
             return this._http.get(this._productUrl)
             .map((response: Response) => <IProduct[]> response.json())
@@ -26,12 +30,14 @@ export class ProductService{
         }
     // tslint:disable-next-line:no-trailing-whitespace
     
+        // tslint:disable-next-line:typedef-whitespace
         getProduct(id: number)  : Observable<IProduct> {
-            return this.getProducts().map((products: IProduct[]) => products.find(p => p.productId===id));
+            return this.getProducts().map((products: IProduct[]) => products.find(p => p.productId === id));
             // tslint:disable-next-line:no-trailing-whitespace
             
         }
 
+        // tslint:disable-next-line:one-line
         private handleError(error: Response){
                 console.log(error);
                 return Observable.throw(error.json().error || 'Server error');

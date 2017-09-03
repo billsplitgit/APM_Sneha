@@ -10,26 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var product_service_1 = require("./product.service");
 var ProductDetailComponent = (function () {
-    function ProductDetailComponent(_route, _router) {
+    function ProductDetailComponent(_route, _router, _productService) {
         this._route = _route;
         this._router = _router;
+        this._productService = _productService;
         this.pageTitle = 'Product Detail';
     }
     // tslint:disable-next-line:one-line
     ProductDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
         var id = +this._route.snapshot.paramMap.get('id');
         this.pageTitle += ' : ' + id;
-        this.product = {
-            "productId": id,
-            "productName": "Leaf Lake",
-            "productCode": "GDN-001",
-            "releaseDate": "March 19, 2016",
-            "description": "Leaf rake with 48-inch wooden handle.",
-            "price": 19.95,
-            "starRating": 3.2,
-            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
-        };
+        this._productService.getProduct(id).subscribe(function (products) { return _this.product = products; });
+        // this.product={
+        //     "productName" : "Lake",
+        //     "productCode": "GDN-001",
+        //     "releaseDate": "March 19, 2016",
+        //     "description": "Leaf rake with 48-inch wooden handle.",
+        //     "price": 19.95,
+        //     "starRating":3.2,
+        //     "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+        // }
     };
     ProductDetailComponent.prototype.onBack = function () {
         this._router.navigate(['/products']);
@@ -43,7 +46,8 @@ ProductDetailComponent = __decorate([
         styleUrls: ['product-detail.component.css']
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router])
+        router_1.Router,
+        product_service_1.ProductService])
 ], ProductDetailComponent);
 exports.ProductDetailComponent = ProductDetailComponent;
 //# sourceMappingURL=product-detail.component.js.map
