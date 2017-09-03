@@ -15,6 +15,8 @@ export class ProductListComponent implements OnInit{
 imageWidth: number = 50;
 imageMargin: number = 2;
 showImage: boolean = false;
+toggleText: string = 'Show Image';
+toggleText1: string = 'Show Image';
 
 _listFilter: string;
 get listFilter(): string{
@@ -46,6 +48,7 @@ performFilter(filterBy: string): IProduct[]{
 // tslint:disable-next-line:one-line
 toggleImage(): void{
     this.showImage = !this.showImage;
+    this.toggleText = 'Hide Image';
 }
 
 // ngOnInit():void{

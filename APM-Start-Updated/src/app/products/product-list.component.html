@@ -25,7 +25,12 @@
                     <tr>
                         <th>
                             <button class='btn btn-primary' (click)='toggleImage()'>
-                                Show Image
+                                <div  *ngIf='showImage'>
+                                {{toggleText}}
+                                </div>
+                            <div *ngIf='showImage==false'>
+                               {{toggleText1}}
+                                </div>
                             </button>
                         </th>
                         <th>Product</th>

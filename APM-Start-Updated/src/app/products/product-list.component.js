@@ -19,6 +19,8 @@ var ProductListComponent = (function () {
         this.imageWidth = 50;
         this.imageMargin = 2;
         this.showImage = false;
+        this.toggleText = 'Show Image';
+        this.toggleText1 = 'Show Image';
         this.products = [];
     }
     Object.defineProperty(ProductListComponent.prototype, "listFilter", {
@@ -41,6 +43,7 @@ var ProductListComponent = (function () {
     // tslint:disable-next-line:one-line
     ProductListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
+        this.toggleText = 'Hide Image';
     };
     // ngOnInit():void{
     //     console.log('In OnInit')
