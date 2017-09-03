@@ -14,6 +14,7 @@ var product_detail_component_1 = require("./products/product-detail.component");
 var convert_to_spaces_pipe_1 = require("./shared/convert-to-spaces.pipe");
 var star_component_1 = require("./shared/star.component");
 var router_1 = require("@angular/router");
+var product_gaurd_service_1 = require("./products/product-gaurd.service");
 // import {HttpClient} from "@angular/common/http";
 var http_1 = require("@angular/http");
 var welcome_component_1 = require("./home/welcome.component");
@@ -28,13 +29,14 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule,
             router_1.RouterModule.forRoot([
                 { path: 'products', component: product_list_component_1.ProductListComponent },
-                { path: 'products/:id', component: product_detail_component_1.ProductDetailComponent },
+                { path: 'products/:id', canActivate: [product_gaurd_service_1.ProductGaurdService], component: product_detail_component_1.ProductDetailComponent },
                 { path: 'welcome', component: welcome_component_1.WelcomeComponent },
                 { path: '', redirectTo: 'welcome', pathMatch: 'full' },
                 { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
             ])
         ],
         declarations: [app_component_1.AppComponent, product_list_component_1.ProductListComponent, product_detail_component_1.ProductDetailComponent, convert_to_spaces_pipe_1.ConvertToSpacesPipe, star_component_1.StarComponent, welcome_component_1.WelcomeComponent],
+        providers: [product_gaurd_service_1.ProductGaurdService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

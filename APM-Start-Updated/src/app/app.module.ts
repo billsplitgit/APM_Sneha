@@ -7,7 +7,7 @@ import {ProductDetailComponent} from './products/product-detail.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent} from './shared/star.component';
 import { RouterModule } from '@angular/router';
-
+import {ProductGaurdService} from './products/product-gaurd.service';
 // import {HttpClient} from "@angular/common/http";
 import {HttpModule} from '@angular/http';
 import { WelcomeComponent } from './home/welcome.component';
@@ -17,13 +17,14 @@ import { WelcomeComponent } from './home/welcome.component';
   imports: [ BrowserModule, FormsModule, HttpModule, 
     RouterModule.forRoot([
       {path: 'products', component: ProductListComponent},
-      {path: 'products/:id', component: ProductDetailComponent},
+      {path: 'products/:id',canActivate: [ProductGaurdService], component: ProductDetailComponent},
       {path: 'welcome', component: WelcomeComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ])
   ],
   declarations: [ AppComponent, ProductListComponent , ProductDetailComponent, ConvertToSpacesPipe, StarComponent, WelcomeComponent],
+  providers: [ProductGaurdService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -5,6 +5,7 @@
 
 import { OnInit, Component } from '@angular/core';
 import {IProduct} from './product';
+import { ActivatedRoute , Router } from '@angular/router';
 
 @Component({
     moduleId: module.id, 
@@ -17,9 +18,28 @@ pageTitle: string ='Product Detail';
 product: IProduct;
 
 
-    constructor() {}
+    constructor( private _route: ActivatedRoute, 
+                private _router: Router ) {}
 
     // tslint:disable-next-line:one-line
-    ngOnInit() {}
+    ngOnInit() {
+        let id = +this._route.snapshot.paramMap.get('id');
+        this.pageTitle += ' : '+  id;
+        this.product = {
+            "productId": id,
+            "productName": "Leaf Lake",
+            "productCode": "GDN-001",
+            "releaseDate": "March 19, 2016",
+            "description": "Leaf rake with 48-inch wooden handle.",
+            "price": 19.95,
+            "starRating":3.2,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+        }
+    }
+
+    onBack(): void {
+        this._router.navigate(['/products']);
+    }
+
 // tslint:disable-next-line:eofline
 }
