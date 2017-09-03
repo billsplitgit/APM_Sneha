@@ -7,17 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
-<<<<<<< HEAD
-var app_component_1 = require("./app.component");
-=======
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var product_list_component_1 = require("./products/product-list.component");
+var product_detail_component_1 = require("./products/product-detail.component");
 var convert_to_spaces_pipe_1 = require("./shared/convert-to-spaces.pipe");
 var star_component_1 = require("./shared/star.component");
-//import {HttpClient} from "@angular/common/http";
+var router_1 = require("@angular/router");
+// import {HttpClient} from "@angular/common/http";
 var http_1 = require("@angular/http");
->>>>>>> be7c34fa6168c89f1ddf43fbc374b8f985d8c41c
+var welcome_component_1 = require("./home/welcome.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,13 +24,17 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-<<<<<<< HEAD
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent],
-=======
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
-        declarations: [app_component_1.AppComponent, product_list_component_1.ProductListComponent, convert_to_spaces_pipe_1.ConvertToSpacesPipe, star_component_1.StarComponent],
->>>>>>> be7c34fa6168c89f1ddf43fbc374b8f985d8c41c
+        // tslint:disable-next-line:no-trailing-whitespace
+        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule,
+            router_1.RouterModule.forRoot([
+                { path: 'products', component: product_list_component_1.ProductListComponent },
+                { path: 'products/:id', component: product_detail_component_1.ProductDetailComponent },
+                { path: 'welcome', component: welcome_component_1.WelcomeComponent },
+                { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+                { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+            ])
+        ],
+        declarations: [app_component_1.AppComponent, product_list_component_1.ProductListComponent, product_detail_component_1.ProductDetailComponent, convert_to_spaces_pipe_1.ConvertToSpacesPipe, star_component_1.StarComponent, welcome_component_1.WelcomeComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

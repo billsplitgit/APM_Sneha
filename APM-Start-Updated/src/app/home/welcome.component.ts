@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-    templateUrl: 'app/home/welcome.component.html'
+    // tslint:disable-next-line:no-trailing-whitespace
+    moduleId:  module.id, 
+    templateUrl: 'welcome.component.html'
 })
 export class WelcomeComponent {
     public pageTitle: string = 'Welcome';
