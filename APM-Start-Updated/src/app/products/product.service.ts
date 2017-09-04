@@ -13,7 +13,7 @@ import 'rxjs/add/operator/do';
 
 export class ProductService{
 
-    private _productUrl = 'api/products/products.json'
+    private _productUrl = 'api/products/products.json';
 
         constructor(private _http : Http){}
     // tslint:disable-next-line:no-trailing-whitespace
