@@ -15,11 +15,13 @@ require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/do");
 var ProductService = (function () {
+    // tslint:disable-next-line:no-trailing-whitespace
     function ProductService(_http) {
         this._http = _http;
         this._productUrl = 'api/products/products.json';
     }
     // tslint:disable-next-line:no-trailing-whitespace
+    // tslint:disable-next-line:typedef-whitespace
     ProductService.prototype.getProducts = function () {
         return this._http.get(this._productUrl)
             .map(function (response) { return response.json(); })
@@ -27,10 +29,12 @@ var ProductService = (function () {
             .catch(this.handleError);
     };
     // tslint:disable-next-line:no-trailing-whitespace
+    // tslint:disable-next-line:typedef-whitespace
     ProductService.prototype.getProduct = function (id) {
         return this.getProducts().map(function (products) { return products.find(function (p) { return p.productId === id; }); });
         // tslint:disable-next-line:no-trailing-whitespace
     };
+    // tslint:disable-next-line:one-line
     ProductService.prototype.handleError = function (error) {
         console.log(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');

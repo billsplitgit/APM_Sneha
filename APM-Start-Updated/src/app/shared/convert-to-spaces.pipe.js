@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var ConvertToSpacesPipe = (function () {
+    // tslint:disable-next-line:one-line
     function ConvertToSpacesPipe() {
     }
     ConvertToSpacesPipe.prototype.transform = function (value, character) {

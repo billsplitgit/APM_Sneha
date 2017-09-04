@@ -11,12 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var product_service_1 = require("./product.service");
 var ProductListComponent = (function () {
+    // tslint:disable-next-line:one-line
     function ProductListComponent(_productService) {
+        // tslint:disable-next-line:no-trailing-whitespace
         this._productService = _productService;
         this.pageTitle = 'Product List';
         this.imageWidth = 50;
         this.imageMargin = 2;
         this.showImage = false;
+        this.toggleText = 'Show Image';
+        this.toggleText1 = 'Show Image';
         this.products = [];
     }
     Object.defineProperty(ProductListComponent.prototype, "listFilter", {
@@ -30,25 +34,32 @@ var ProductListComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    // tslint:disable-next-line:one-line
     ProductListComponent.prototype.performFilter = function (filterBy) {
         filterBy = filterBy.toLowerCase();
         return this.products.filter(function (product) { return product.productName.toLowerCase().indexOf(filterBy) !== -1; });
+        // tslint:disable-next-line:no-trailing-whitespace
     };
+    // tslint:disable-next-line:one-line
     ProductListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
+        this.toggleText = 'Hide Image';
     };
     // ngOnInit():void{
     //     console.log('In OnInit')
     //     this.products = this._productService.getProducts();
     //     this.filteredProducts = this.products;
     // }
+    // tslint:disable-next-line:one-line
     ProductListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._productService.getProducts()
             .subscribe(function (products) { _this.products = products; _this.filteredProducts = _this.products; }, function (error) { return _this.errorMessage = error; });
     };
+    // tslint:disable-next-line:one-line
     ProductListComponent.prototype.onRatingClicked = function (message) {
         this.pageTitle = 'Product List:' + message;
+        // tslint:disable-next-line:no-trailing-whitespace
     };
     return ProductListComponent;
 }());

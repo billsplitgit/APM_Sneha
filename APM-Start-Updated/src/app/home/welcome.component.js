@@ -14,7 +14,9 @@ var WelcomeComponent = (function () {
 }());
 WelcomeComponent = __decorate([
     core_1.Component({
-        templateUrl: 'app/home/welcome.component.html'
+        // tslint:disable-next-line:no-trailing-whitespace
+        moduleId: module.id,
+        templateUrl: 'welcome.component.html'
     })
 ], WelcomeComponent);
 exports.WelcomeComponent = WelcomeComponent;
