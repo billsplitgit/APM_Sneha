@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductService } from './products/product.service';
+
 
 @Component({
     selector: 'pm-root',
@@ -18,8 +18,7 @@ import { ProductService } from './products/product.service';
     <div class='container'>
     <router-outlet></router-outlet>
         </div>
-    `,
-    providers: [ProductService]
+    `   
 })
 // tslint:disable-next-line:no-trailing-whitespace
 export class AppComponent { 
